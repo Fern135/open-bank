@@ -1,0 +1,165 @@
+.sheet {
+  padding: 1.25rem;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 8px 8px 0 var(--rule);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.action {
+  padding: 0.5rem 0.85rem;
+  background: var(--ink);
+  border: 0;
+  color: var(--sheet);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.action:hover {
+  background: var(--banknote);
+}
+
+.status,
+.declined {
+  min-height: 3.2em;
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.declined {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.ledger {
+  width: 100%;
+  font-size: 1rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ledger th,
+.ledger td {
+  height: 2rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 400;
+}
+
+.ledger thead th,
+.ledger tfoot th,
+.ledger tfoot td {
+  font-weight: 700;
+}
+
+.ledger thead th {
+  border-bottom: 2px solid var(--ink);
+}
+
+/* Ledger paper's double red rule between the columns */
+.ledger .amount {
+  width: 6.75rem;
+  border-left: 3px double var(--red);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ledger .creditLine {
+  padding-left: 1.75rem;
+}
+
+.ledger .memo {
+  font-size: 0.925rem;
+  font-style: italic;
+}
+
+.ledger tfoot th,
+.ledger tfoot td {
+  border-top: 2px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+.inked {
+  animation: ink 500ms ease-out;
+}
+
+@keyframes ink {
+  from {
+    background: var(--rule);
+  }
+}
+
+.position {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.position dt {
+  font-size: 0.925rem;
+  font-weight: 400;
+}
+
+.position dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.reset {
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .sheet {
+    padding: 1rem 0.75rem;
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  .ledger {
+    font-size: 0.925rem;
+  }
+
+  .ledger th,
+  .ledger td {
+    padding: 0 0.25rem;
+  }
+
+  .ledger .amount {
+    width: 5.25rem;
+  }
+
+  .ledger .creditLine {
+    padding-left: 0.75rem;
+  }
+
+  .position {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .position div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inked {
+    animation: none;
+  }
+}
