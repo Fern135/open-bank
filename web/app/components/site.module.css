@@ -1,0 +1,84 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-stretch: 125%;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.navLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+}
+
+.navLinks a:hover {
+  text-decoration: underline;
+}
+
+.navLinks .navCta {
+  padding: 0.4rem 0.9rem;
+  background: var(--ink);
+  color: var(--sheet);
+}
+
+.navLinks .navCta:hover {
+  background: var(--banknote);
+  color: var(--sheet);
+}
+
+.footer {
+  margin-top: 5rem;
+  padding: 3.5rem 0;
+  background: var(--banknote);
+  color: var(--sheet);
+}
+
+.footer a {
+  color: inherit;
+}
+
+.footer a:hover {
+  color: var(--rule);
+}
+
+.footer :focus-visible {
+  outline-color: var(--sheet);
+}
+
+.footerName {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-stretch: 125%;
+  font-weight: 800;
+}
+
+.footerNote {
+  max-width: 34rem;
+  margin: 0;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

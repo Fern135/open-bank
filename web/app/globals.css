@@ -1,0 +1,54 @@
+:root {
+  --paper: #e6f1ea;
+  --sheet: #f8fcf9;
+  --rule: #a9cdb8;
+  --ink: #12305c;
+  --red: #b4232f;
+  --banknote: #0e4a3b;
+
+  --font-display: var(--font-archivo), Arial, sans-serif;
+  --font-text: var(--font-source-serif), Georgia, serif;
+
+  --bs-body-bg: var(--paper);
+  --bs-body-color: var(--ink);
+  --bs-body-font-family: var(--font-text);
+  --bs-body-font-size: 1.125rem;
+  --bs-body-line-height: 1.6;
+  --bs-link-color-rgb: 18, 48, 92;
+  --bs-link-hover-color-rgb: 180, 35, 47;
+
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+.visually-hidden-focusable:focus {
+  position: absolute !important;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--sheet);
+}
