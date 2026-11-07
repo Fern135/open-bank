@@ -8,6 +8,8 @@ import "./globals.css";
 import SiteFooter from "./components/SiteFooter";
 import SiteHeader from "./components/SiteHeader";
 
+import Config from "@config";
+
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
@@ -22,11 +24,10 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "Open Bank",
-    template: "%s | Open Bank",
+    default: Config.getAppName(),
+    template: "%s | " + Config.getAppName(),
   },
-  description:
-    "Checking and savings with the books open. See every entry behind your balance.",
+  description: Config.getAppDescription(),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -36,9 +37,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="visually-hidden-focusable" href="#main">
           Skip to content
         </a>
+
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+
       </body>
     </html>
   );

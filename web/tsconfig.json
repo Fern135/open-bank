@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"], 
+      "@config": ["./config/Config.ts"]
     }
   },
   "include": [

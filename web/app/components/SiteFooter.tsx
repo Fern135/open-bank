@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LEGAL_LINKS, REPO_URL } from "./legalLinks";
 import styles from "./site.module.css";
+import Config from "@config";
 
 export default function SiteFooter() {
   return (
@@ -8,9 +9,9 @@ export default function SiteFooter() {
       <div className="container">
         <div className="row gy-4">
           <div className="col-lg-5">
-            <p className={styles.footerName}>Open Bank</p>
+            <p className={styles.footerName}>{Config.getAppName()}</p>
             <p className={styles.footerNote}>
-              Open Bank is not a chartered bank, and it is not FDIC insured.
+              {Config.getAppName()} is not a chartered bank, and it is not FDIC insured.
               Read our <Link href="/disclosures">disclosures</Link>.
             </p>
             <p className={`${styles.footerNote} mt-3`}>

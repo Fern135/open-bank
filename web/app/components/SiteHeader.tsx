@@ -1,12 +1,13 @@
 import Link from "next/link";
 import styles from "./site.module.css";
+import Config from "@config";
 
 export default function SiteHeader() {
   return (
     <header>
       <nav className={`container ${styles.nav}`} aria-label="Main">
         <Link className={styles.wordmark} href="/">
-          Open Bank
+          {Config.getAppName()}
         </Link>
         <div className={styles.navLinks}>
           <Link href="/#accounts">Accounts</Link>
