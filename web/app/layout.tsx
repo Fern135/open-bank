@@ -5,9 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
 
-import SiteFooter from "./components/SiteFooter";
-import SiteHeader from "./components/SiteHeader";
-
 import Config from "@config";
 
 const archivo = Archivo({
@@ -37,11 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="visually-hidden-focusable" href="#main">
           Skip to content
         </a>
-
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
-
+        {children}
       </body>
     </html>
   );

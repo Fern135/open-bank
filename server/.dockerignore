@@ -1,0 +1,4 @@
+api
+docs
+.env*
+*_test.go

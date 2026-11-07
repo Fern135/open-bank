@@ -1,0 +1,416 @@
+.shell {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 19rem minmax(0, 1fr);
+}
+
+/* The rail is the index edge of a ledger book, and each account is a tab. */
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.25rem;
+  background: var(--banknote);
+  color: var(--sheet);
+}
+
+.rail a,
+.rail button {
+  color: inherit;
+}
+
+.rail :focus-visible {
+  outline-color: var(--sheet);
+  outline-offset: -3px;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-stretch: 125%;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.railHeading {
+  margin: 0 0 -1rem;
+  font-size: 1rem;
+  font-stretch: 100%;
+  font-weight: 600;
+}
+
+.railHeading a {
+  text-decoration: none;
+}
+
+.railHeading a:hover,
+.railHeading a[aria-current] {
+  text-decoration: underline;
+}
+
+.tabs,
+.railLinks {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 0.75rem;
+  align-items: baseline;
+  padding: 0.6rem 1.25rem 0.6rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-right: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-decoration: none;
+}
+
+.tab:hover {
+  background: rgb(255 255 255 / 12%);
+}
+
+/* The open tab takes the page's colour and joins it, as a real index tab does. */
+.rail .tab[aria-current] {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.rail .tab[aria-current]:focus-visible {
+  outline-color: var(--red);
+}
+
+.tabName {
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tabBalance {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.tabNumber {
+  font-size: 0.875rem;
+}
+
+.railLink {
+  display: block;
+  width: 100%;
+  padding: 0.3rem 0;
+  background: none;
+  border: 0;
+  font-size: 1rem;
+  text-align: left;
+  text-decoration: none;
+}
+
+.railLink i {
+  width: 1.4em;
+}
+
+.railLink:hover,
+.railLink[aria-current] {
+  text-decoration: underline;
+}
+
+.railEnd {
+  margin-top: auto;
+}
+
+.railError {
+  margin: 0;
+  padding-right: 1.25rem;
+  font-size: 1rem;
+}
+
+.page {
+  min-width: 0;
+  max-width: 62rem;
+  padding: 2.5rem clamp(1rem, 4vw, 3.5rem) 4rem;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.subheading {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.intro {
+  max-width: 36rem;
+}
+
+.section {
+  margin-top: 3rem;
+}
+
+.total {
+  display: inline-block;
+  margin: 0 0 1rem;
+}
+
+.total dt {
+  font-weight: 400;
+}
+
+.total dd {
+  margin: 0;
+  padding-bottom: 0.1rem;
+  border-bottom: 3px double var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-stretch: 110%;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.accountMeta {
+  margin: 0 0 0.5rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.action {
+  padding: 0.55rem 1rem;
+  background: var(--ink);
+  color: var(--sheet);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.action:hover {
+  background: var(--banknote);
+  color: var(--sheet);
+}
+
+.error {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.sheet {
+  padding: 1.25rem;
+  overflow-x: auto;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  box-shadow: 8px 8px 0 var(--rule);
+}
+
+.ledger {
+  width: 100%;
+  font-size: 1rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ledger th,
+.ledger td {
+  padding: 0.45rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 400;
+  vertical-align: top;
+}
+
+.ledger thead th,
+.ledger tfoot th,
+.ledger tfoot td {
+  font-weight: 700;
+}
+
+.ledger thead th {
+  border-bottom: 2px solid var(--ink);
+}
+
+.ledger tfoot th,
+.ledger tfoot td {
+  border-top: 2px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+}
+
+/* Ledger paper's double red rule between the columns */
+.ledger .amount {
+  width: 7.5rem;
+  border-left: 3px double var(--red);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.date {
+  white-space: nowrap;
+}
+
+.sides {
+  display: block;
+  font-size: 0.925rem;
+  font-style: italic;
+  overflow-wrap: anywhere;
+}
+
+.review {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 28rem;
+  margin: 1rem 0 0;
+}
+
+.review div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.review dt {
+  font-weight: 400;
+}
+
+.review dd {
+  margin: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.review .reviewTotal {
+  padding-top: 0.4rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 3px double var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.review .reviewTotal dt {
+  font-weight: 700;
+}
+
+.statementControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1.5rem;
+}
+
+.rows {
+  max-width: 44rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rows li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.rowTitle {
+  font-weight: 600;
+}
+
+.qr {
+  background: #fff;
+  border: 1px solid var(--rule);
+}
+
+@media (max-width: 860px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rail {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .railHeading {
+    margin-bottom: -0.5rem;
+  }
+
+  .tab {
+    border-right: 1px solid var(--rule);
+    padding-right: 0.75rem;
+  }
+
+  .railLinks {
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  }
+
+  .railEnd {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .sheet {
+    padding: 0.75rem;
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  /* each row already ends in its debit or credit, so the running total goes first */
+  .balanceColumn {
+    display: none;
+  }
+
+  .ledger {
+    font-size: 0.925rem;
+  }
+
+  .ledger th,
+  .ledger td {
+    padding: 0.4rem 0.25rem;
+  }
+
+  .ledger .amount {
+    width: 5.5rem;
+  }
+
+  .date {
+    white-space: normal;
+  }
+}
+
+@media print {
+  .rail,
+  .noPrint {
+    display: none;
+  }
+
+  .shell {
+    display: block;
+  }
+
+  .sheet {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+}

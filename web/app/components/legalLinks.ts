@@ -9,4 +9,4 @@ export const LEGAL_LINKS = [
   { href: "/accessibility", label: "Accessibility" },
 ] as const;
 
-export const REPO_URL = "https://github.com/Fern135/open-bank";
+export const REPO_URL = "https://github.com/Fern135/open-tally";
